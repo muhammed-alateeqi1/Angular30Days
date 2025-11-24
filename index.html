@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angular 30-Day Checklist</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: linear-gradient(135deg, #8B0000 0%, #4a0000 100%);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  h1 { 
+    text-align: center; 
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 2em;
+  }
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+  }
+  .progress-section {
+    margin-bottom: 30px;
+  }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #555;
+  }
+  .progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #8B0000 0%, #DC143C 100%);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85em;
+  }
+  .day {
+    background: #f9f9f9;
+    padding: 15px 20px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border-left: 4px solid #8B0000;
+    transition: all 0.2s ease;
+  }
+  .day:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+  }
+  .day.done {
+    opacity: 0.6;
+    border-left-color: #4caf50;
+  }
+  .day.done .day-header span {
+    text-decoration: line-through;
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #8B0000;
+  }
+  .topic {
+    color: #8B0000;
+    font-weight: 600;
+    margin: 8px 0 8px 32px;
+    font-size: 0.95em;
+  }
+  .task, .challenge {
+    margin: 5px 0 5px 32px;
+    color: #555;
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+  .task::before {
+    content: "📋 ";
+    margin-right: 5px;
+  }
+  .challenge::before {
+    content: "🎯 ";
+    margin-right: 5px;
+  }
+  .week-divider {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8B0000;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🚀 Angular 30-Day Challenge</h1>
+  <div class="subtitle">Master Angular fundamentals and build portfolio projects</div>
+  
+  <div class="progress-section">
+    <div class="progress-info">
+      <span>Your Progress</span>
+      <span id="progress-text">0 / 30 days completed</span>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar">0%</div>
+    </div>
+  </div>
+
+  <div class="week-divider">📅 Week 1: Fundamentals</div>
+
+  <div class="day" id="day1">
+    <label class="day-header">
+      <input type="checkbox" data-day="1">
+      <span>Day 1: Project Setup & Basics</span>
+    </label>
+    <div class="topic">Topics: Angular Project Structure, Components, Modules, Routing, Data Binding</div>
+    <div class="task">Task: Open an old Angular project, set up Routing with simple lazy loading, add button with data binding</div>
+    <div class="challenge">Challenge: Create a new component `TestComponent` and display a message from a service</div>
+  </div>
+
+  <div class="day" id="day2">
+    <label class="day-header">
+      <input type="checkbox" data-day="2">
+      <span>Day 2: Services & Observables</span>
+    </label>
+    <div class="topic">Topics: Services, Dependency Injection, Observables Basics</div>
+    <div class="task">Task: Create a service that returns a fake Observable and use it in a component</div>
+    <div class="challenge">Challenge: Change the value in the service and watch the component update automatically</div>
+  </div>
+
+  <div class="day" id="day3">
+    <label class="day-header">
+      <input type="checkbox" data-day="3">
+      <span>Day 3: Reactive Forms</span>
+    </label>
+    <div class="topic">Topics: Reactive Forms, FormGroup, FormControl, Validators</div>
+    <div class="task">Task: Create a simple login form with validation for each field</div>
+    <div class="challenge">Challenge: Try creating a custom validator</div>
+  </div>
+
+  <div class="day" id="day4">
+    <label class="day-header">
+      <input type="checkbox" data-day="4">
+      <span>Day 4: HTTP & API Calls</span>
+    </label>
+    <div class="topic">Topics: HttpClient Basics, GET API call, Async Pipe</div>
+    <div class="task">Task: Use `jsonplaceholder` or `fakestoreapi` to display a list of posts</div>
+    <div class="challenge">Challenge: Add Loading Spinner and handle errors (console)</div>
+  </div>
+
+  <div class="day" id="day5">
+    <label class="day-header">
+      <input type="checkbox" data-day="5">
+      <span>Day 5: Component Communication</span>
+    </label>
+    <div class="topic">Topics: Component Interaction, @Input / @Output, Shared State</div>
+    <div class="task">Task: Parent sends data to child, child modifies and returns update to parent</div>
+    <div class="challenge">Challenge: Use BehaviorSubject in service for reactive data updates</div>
+  </div>
+
+  <div class="day" id="day6">
+    <label class="day-header">
+      <input type="checkbox" data-day="6">
+      <span>Day 6: Pipes & Transformations</span>
+    </label>
+    <div class="topic">Topics: Pipes, Built-in Pipes, Custom Pipe</div>
+    <div class="task">Task: Use built-in pipes (date, uppercase) and create a custom pipe</div>
+    <div class="challenge">Challenge: Create a pipe that transforms text in a creative way</div>
+  </div>
+
+  <div class="day" id="day7">
+    <label class="day-header">
+      <input type="checkbox" data-day="7">
+      <span>Day 7: Rest & Reflection</span>
+    </label>
+    <div class="topic">Topics: Smart Rest, Mind Reset</div>
+    <div class="task">Task: No coding - take a walk, do journaling or meditation</div>
+    <div class="challenge">Challenge: Review mental notes of everything you've learned</div>
+  </div>
+
+  <div class="week-divider">📅 Week 2: Intermediate Concepts</div>
+
+  <div class="day" id="day8">
+    <label class="day-header">
+      <input type="checkbox" data-day="8">
+      <span>Day 8: RxJS Operators</span>
+    </label>
+    <div class="topic">Topics: RxJS Operators: map, filter, tap, switchMap</div>
+    <div class="task">Task: Apply these operators to an API call</div>
+    <div class="challenge">Challenge: Filter posts containing 'a' in title and log with tap</div>
+  </div>
+
+  <div class="day" id="day9">
+    <label class="day-header">
+      <input type="checkbox" data-day="9">
+      <span>Day 9: Error Handling</span>
+    </label>
+    <div class="topic">Topics: Error Handling, Global Error Handler, Interceptor</div>
+    <div class="task">Task: Create a simple Interceptor and handle errors</div>
+    <div class="challenge">Challenge: Test fake API error and handle globally</div>
+  </div>
+
+  <div class="day" id="day10">
+    <label class="day-header">
+      <input type="checkbox" data-day="10">
+      <span>Day 10: Route Guards</span>
+    </label>
+    <div class="topic">Topics: Guards, CanActivate, CanLoad</div>
+    <div class="task">Task: Create a simple AuthGuard to protect routes</div>
+    <div class="challenge">Challenge: Redirect unauthorized users to login</div>
+  </div>
+
+  <div class="day" id="day11">
+    <label class="day-header">
+      <input type="checkbox" data-day="11">
+      <span>Day 11: State Management</span>
+    </label>
+    <div class="topic">Topics: State Management Basics, BehaviorSubject</div>
+    <div class="task">Task: Implement login state management with auto logout</div>
+    <div class="challenge">Challenge: Use Observables only for reactive UI updates</div>
+  </div>
+
+  <div class="day" id="day12">
+    <label class="day-header">
+      <input type="checkbox" data-day="12">
+      <span>Day 12: Advanced Routing</span>
+    </label>
+    <div class="topic">Topics: Advanced Routing, Child Routes, Nested Routes</div>
+    <div class="task">Task: Create lazy loaded admin module with guards</div>
+    <div class="challenge">Challenge: Test CanActivate and CanLoad with lazy module</div>
+  </div>
+
+  <div class="day" id="day13">
+    <label class="day-header">
+      <input type="checkbox" data-day="13">
+      <span>Day 13: Caching</span>
+    </label>
+    <div class="topic">Topics: Cache Service, localStorage + service caching</div>
+    <div class="task">Task: Cache API results with auto refresh</div>
+    <div class="challenge">Challenge: Reduce API calls using cache strategy</div>
+  </div>
+
+  <div class="day" id="day14">
+    <label class="day-header">
+      <input type="checkbox" data-day="14">
+      <span>Day 14: Review Week</span>
+    </label>
+    <div class="topic">Topics: Smart Review</div>
+    <div class="task">Task: 20-minute quick review of everything covered</div>
+    <div class="challenge">Challenge: Complete a mini coding challenge from past days</div>
+  </div>
+
+  <div class="week-divider">📅 Week 3: Building Projects</div>
+
+  <div class="day" id="day15">
+    <label class="day-header">
+      <input type="checkbox" data-day="15">
+      <span>Day 15: Auth Project Start</span>
+    </label>
+    <div class="topic">Topics: Login/Register Flow, Forms + Validation, Fake Backend</div>
+    <div class="task">Task: Project 1 - Build Login + Register pages</div>
+    <div class="challenge">Challenge: Redirect to dashboard after successful login</div>
+  </div>
+
+  <div class="day" id="day16">
+    <label class="day-header">
+      <input type="checkbox" data-day="16">
+      <span>Day 16: Security & Loading</span>
+    </label>
+    <div class="topic">Topics: Guard, Interceptor, Loader</div>
+    <div class="task">Task: Add guard, interceptor and loading indicator</div>
+    <div class="challenge">Challenge: Handle 401 response and redirect to login</div>
+  </div>
+
+  <div class="day" id="day17">
+    <label class="day-header">
+      <input type="checkbox" data-day="17">
+      <span>Day 17: Product Listing</span>
+    </label>
+    <div class="topic">Topics: Product List, Filter, Search, Sort, Pagination</div>
+    <div class="task">Task: Project 2 - Create product listing page</div>
+    <div class="challenge">Challenge: Implement client-side pagination</div>
+  </div>
+
+  <div class="day" id="day18">
+    <label class="day-header">
+      <input type="checkbox" data-day="18">
+      <span>Day 18: Product Details</span>
+    </label>
+    <div class="topic">Topics: Product Details, Route Params, API call</div>
+    <div class="task">Task: Build product details page</div>
+    <div class="challenge">Challenge: Lazy load images and details</div>
+  </div>
+
+  <div class="day" id="day19">
+    <label class="day-header">
+      <input type="checkbox" data-day="19">
+      <span>Day 19: Shopping Cart</span>
+    </label>
+    <div class="topic">Topics: Cart Logic, BehaviorSubject, Reactive Updates</div>
+    <div class="task">Task: Implement cart logic with BehaviorSubject</div>
+    <div class="challenge">Challenge: Make total price update reactively</div>
+  </div>
+
+  <div class="day" id="day20">
+    <label class="day-header">
+      <input type="checkbox" data-day="20">
+      <span>Day 20: Directives & Themes</span>
+    </label>
+    <div class="topic">Topics: Dark Mode, Custom Directives</div>
+    <div class="task">Task: Add dark mode toggle and custom directive</div>
+    <div class="challenge">Challenge: Make directive reusable on any element</div>
+  </div>
+
+  <div class="day" id="day21">
+    <label class="day-header">
+      <input type="checkbox" data-day="21">
+      <span>Day 21: Rest & Refactor</span>
+    </label>
+    <div class="topic">Topics: Smart Rest / Review</div>
+    <div class="task">Task: Rest and review mini projects</div>
+    <div class="challenge">Challenge: Fix bugs and refactor code</div>
+  </div>
+
+  <div class="week-divider">📅 Week 4: Final Portfolio Project</div>
+
+  <div class="day" id="day22">
+    <label class="day-header">
+      <input type="checkbox" data-day="22">
+      <span>Day 22: Project Planning</span>
+    </label>
+    <div class="topic">Topics: App Planning, Module & Service Structure</div>
+    <div class="task">Task: Choose Final Portfolio Project (E-commerce / Blog / Dashboard)</div>
+    <div class="challenge">Challenge: Plan modules, pages and services architecture</div>
+  </div>
+
+  <div class="day" id="day23">
+    <label class="day-header">
+      <input type="checkbox" data-day="23">
+      <span>Day 23: Layout & Navigation</span>
+    </label>
+    <div class="topic">Topics: Auth, Routing, Layout</div>
+    <div class="task">Task: Build Header, Footer, Navigation with Auth Guard</div>
+    <div class="challenge">Challenge: Test login redirect and protected routes</div>
+  </div>
+
+  <div class="day" id="day24">
+    <label class="day-header">
+      <input type="checkbox" data-day="24">
+      <span>Day 24: Components Setup</span>
+    </label>
+    <div class="topic">Topics: Pages / Components, List / Details / Dashboard</div>
+    <div class="task">Task: Setup pages and component hierarchy</div>
+    <div class="challenge">Challenge: Ensure component reuse where possible</div>
+  </div>
+
+  <div class="day" id="day25">
+    <label class="day-header">
+      <input type="checkbox" data-day="25">
+      <span>Day 25: API Integration</span>
+    </label>
+    <div class="topic">Topics: Real API Integration, Loading, Error Handling</div>
+    <div class="task">Task: Connect real API or JSON server</div>
+    <div class="challenge">Challenge: Handle errors gracefully with loading states</div>
+  </div>
+
+  <div class="day" id="day26">
+    <label class="day-header">
+      <input type="checkbox" data-day="26">
+      <span>Day 26: Forms & Validation</span>
+    </label>
+    <div class="topic">Topics: Forms, Add / Edit, Reusable Components, Validation</div>
+    <div class="task">Task: Build add/edit forms with validation</div>
+    <div class="challenge">Challenge: Reuse form component for multiple entities</div>
+  </div>
+
+  <div class="day" id="day27">
+    <label class="day-header">
+      <input type="checkbox" data-day="27">
+      <span>Day 27: Global State</span>
+    </label>
+    <div class="topic">Topics: Global State, Observables Only</div>
+    <div class="task">Task: Manage global state for cart, user info, favorites</div>
+    <div class="challenge">Challenge: Implement reactive updates without direct component state</div>
+  </div>
+
+  <div class="day" id="day28">
+    <label class="day-header">
+      <input type="checkbox" data-day="28">
+      <span>Day 28: UI Polish</span>
+    </label>
+    <div class="topic">Topics: UI Polishing, Animations, Responsive Design</div>
+    <div class="task">Task: Polish UI with Angular animations and CSS transitions</div>
+    <div class="challenge">Challenge: Ensure app works perfectly on mobile and desktop</div>
+  </div>
+
+  <div class="day" id="day29">
+    <label class="day-header">
+      <input type="checkbox" data-day="29">
+      <span>Day 29: Build & Deploy</span>
+    </label>
+    <div class="topic">Topics: Build & Deploy</div>
+    <div class="task">Task: Build app and deploy to GitHub Pages / Netlify</div>
+    <div class="challenge">Challenge: Verify production mode and all URLs working</div>
+  </div>
+
+  <div class="day" id="day30">
+    <label class="day-header">
+      <input type="checkbox" data-day="30">
+      <span>Day 30: Job Ready! 🎉</span>
+    </label>
+    <div class="topic">Topics: CV & LinkedIn, Job Applications</div>
+    <div class="task">Task: Update CV and LinkedIn profile, apply to 3 jobs per day</div>
+    <div class="challenge">Challenge: Add portfolio project link to your CV</div>
+  </div>
+
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  const totalDays = 30;
+
+  function updateProgress() {
+    let completed = 0;
+    checkboxes.forEach(chk => {
+      if (chk.checked) completed++;
+    });
+    
+    const percentage = Math.round((completed / totalDays) * 100);
+    progressBar.style.width = percentage + '%';
+    progressBar.textContent = percentage + '%';
+    progressText.textContent = `${completed} / ${totalDays} days completed`;
+  }
+
+  checkboxes.forEach(chk => {
+    const day = chk.dataset.day;
+    
+    // Load saved state
+    if (localStorage.getItem('day' + day) === 'done') {
+      chk.checked = true;
+      chk.closest('.day').classList.add('done');
+    }
+    
+    // Handle checkbox change
+    chk.addEventListener('change', () => {
+      if (chk.checked) {
+        localStorage.setItem('day' + day, 'done');
+        chk.closest('.day').classList.add('done');
+      } else {
+        localStorage.removeItem('day' + day);
+        chk.closest('.day').classList.remove('done');
+      }
+      updateProgress();
+    });
+  });
+
+  // Initial progress update
+  updateProgress();
+</script>
+</body>
+</html>
